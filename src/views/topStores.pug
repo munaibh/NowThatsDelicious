@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .inner
+    h2 #{stores.length} #{title}
+    table.table
+      thead
+        tr
+          th Photo
+          th Rank
+          th Name
+          td Review
+          td Average Rating
+      
+      tbody
+        each store, i in stores
+          tr
+            td: a(href=`/store/${store.slug}`): img(src=`/uploads/${store.photo || 'store.png'}` width=200)
+            td= i+1
+            td= store.name
+            td= store.reviews.length
+            td #{Math.round(store.averageRating * 10) /10} / 5
+      
+      

@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+  .inner
+    h1 Edit Your Account
+    form(action="/account" method="POST")
+      label(for="name") Name
+      input(type="text" name="name" id="name" value=user.name)
+      label(for="email") Email
+      input(type="email" name="email" id="email" value=user.email)
+      input(class="button" type="submit" value="Save")
